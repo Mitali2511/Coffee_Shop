@@ -6,7 +6,7 @@ Onboarding - I have shown three features of app search ,filter option and add to
 
 I have Used Firebase email and password authentication for Login
 
- #email-Mitalibansode2@gmail.com, password-123456
+ email-Mitalibansode2@gmail.com, password-123456
 
 On home screen there is a searchbar to search for coffee products .
 you can select the option to choose the product.
