@@ -7,12 +7,13 @@ class LoginScreen extends StatelessWidget {
 
   final email = TextEditingController();
   final password = TextEditingController();
+  LoginController l = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-    //
+      //
       body: GetBuilder<LoginController>(builder: (controller) {
         return Container(
             alignment: Alignment.center,
@@ -58,7 +59,7 @@ class LoginScreen extends StatelessWidget {
 //Password
 
                             TextField(
-                              obscureText: controller.obscure,
+                              obscureText: l.obscure,
                               controller: password,
                               decoration: InputDecoration(
                                   hintText: "Password",
@@ -66,9 +67,9 @@ class LoginScreen extends StatelessWidget {
                                       borderRadius: BorderRadius.circular(30)),
                                   suffixIcon: GestureDetector(
                                       onTap: () {
-                                        controller.togglepassword();
+                                        l.togglepassword();
                                       },
-                                      child: controller.obscure
+                                      child: l.obscure
                                           ? const Icon(Icons.visibility_off)
                                           : const Icon(Icons.visibility))),
                             ),
@@ -84,7 +85,7 @@ class LoginScreen extends StatelessWidget {
                                 onPressed: () {
                                   if (email.text.isNotEmpty &&
                                       password.text.isNotEmpty) {
-                                    controller.loginwithEmiailAndPassword(
+                                    l.loginwithEmiailAndPassword(
                                         email.text, password.text);
                                   } else {
                                     Get.snackbar(

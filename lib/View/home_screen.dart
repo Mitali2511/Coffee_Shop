@@ -6,7 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final slides = PageController();
+  
   final TextEditingController search = TextEditingController();
 
   @override
@@ -238,7 +238,7 @@ class HomeScreen extends StatelessWidget {
                 height: MediaQuery.sizeOf(context).height * 0.3,
                 child: PageView.builder(
                     itemCount: controller.slides.length,
-                    controller: slides,
+                    controller: controller.slide,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.all(5.0),
@@ -260,7 +260,7 @@ class HomeScreen extends StatelessWidget {
 
               Center(
                 child: SmoothPageIndicator(
-                  controller: slides,
+                  controller: controller.slide,
                   count: controller.slides.length,
                   effect: const ScrollingDotsEffect(
                       dotHeight: 8,

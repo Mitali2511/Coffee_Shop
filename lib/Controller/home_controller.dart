@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,8 +7,17 @@ import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
   List<ProductListModel>? product_list;
+  final slide = PageController();
   List<ProductListModel>? response_list;
   List<ProductListModel> searchResult = [];
+  static List category = ["Latte", "Mocha", "Caramel", "Machhiato"];
+  List selectedFilters = [];
+  static List<bool> checkedItems =
+      List.generate(category.length, (index) => false);
+
+  int currentPageIndex = 0;
+  Timer? timer;    
+
   var search = false;
 
   List slides = [
@@ -18,15 +28,14 @@ class HomeController extends GetxController {
     "product5.jpeg",
   ];
 
-  
-
   @override
   void onInit() {
     getResponse();
-
+startTimer();
     // TODO: implement onInit
     super.onInit();
   }
+
 // To Get Coffee Products From APi
   getResponse() async {
     filter = false;
@@ -39,18 +48,15 @@ class HomeController extends GetxController {
         print("---------Product Response-----------");
         print(response);
 
-     
         response_list =
             ProductListModel.getProductList(response).cast<ProductListModel>();
         update();
-
-    
-      
       }
     } catch (e) {
       print(e);
     }
   }
+
 //To Get Search Results
   getSearchResult(String query) {
     searchResult = [];
@@ -60,7 +66,6 @@ class HomeController extends GetxController {
         if (element.title!.toLowerCase().contains(query.toLowerCase())) {
           searchResult.add(element);
           update();
-          
         }
       });
     } else {
@@ -68,18 +73,19 @@ class HomeController extends GetxController {
     }
   }
 
+//To show the results on screen
   showResults() {
-    
-filter=true;
+    filter = true;
     search = true;
 
     update();
-    searchResult=[];
+    searchResult = [];
     update();
-    product_list=[];
+    product_list = [];
     update();
   }
 
+//Final Search Result
   searchFinalResult() {
     product_list = null;
 
@@ -87,10 +93,7 @@ filter=true;
     update();
   }
 
-  static List category = ["Latte", "Mocha", "Caramel", "Machhiato"];
-  List selectedFilters = [];
-  static List<bool> checkedItems =
-      List.generate(category.length, (index) => false);
+  //DailogBox
   showCheckboxDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -100,7 +103,7 @@ filter=true;
           content: StatefulBuilder(
             builder: (BuildContext context, StateSetter setState) {
               return Container(
-                height: MediaQuery.sizeOf(context).height*0.3,
+                height: MediaQuery.sizeOf(context).height * 0.3,
                 child: Column(
                   children: [
                     for (int i = 0; i <= checkedItems.length - 1; i++) ...[
@@ -108,7 +111,6 @@ filter=true;
                         title: Text(category[i]),
                         value: checkedItems[i],
                         onChanged: (bool? value) {
-                         
                           setState(() {
                             checkedItems[i] = value!;
                           });
@@ -141,8 +143,7 @@ filter=true;
             TextButton(
               onPressed: () {
                 getApplyFiltersList();
-                // Do something with the selected options
-                print('Selected Options: $checkedItems');
+
                 Navigator.of(context).pop();
               },
               child: Text('OK'),
@@ -170,12 +171,31 @@ filter=true;
         }
       }
     }
-    print("product list length");
-    print(product_list!.length);
   }
-  toggleFilter(){
-    filter=false;
-    product_list=[];
+
+  toggleFilter() {
+    filter = false;
+    product_list = [];
     update();
+  }
+
+
+  startTimer() {
+    print('started');
+    
+      
+      timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
+        if (currentPageIndex < slides.length - 1) {
+          currentPageIndex++;
+        } else {
+          currentPageIndex = 0;
+        }
+   if (slide.hasClients){
+        slide.animateToPage(currentPageIndex,
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut);}
+      });
+      update();
+    
   }
 }

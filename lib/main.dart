@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:kenmark_itan_assignment/View/home_screen.dart';
 import 'package:kenmark_itan_assignment/View/login_screen.dart';
 import 'package:kenmark_itan_assignment/View/onboarding_screen.dart';
