@@ -1,16 +1,18 @@
 # kenmark_itan_assignment
 
-A new Flutter project.
+In this program I have created a coffee shop app.
 
-## Getting Started
+Onboarding - I have shown three features of app search ,filter option and add to cart.
 
-This project is a starting point for a Flutter application.
+I have Used Firebase email and password authentication for Login
 
-A few resources to get you started if this is your first Flutter project:
+ #email-Mitalibansode2@gmail.com, password-123456
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+On home screen there is a searchbar to search for coffee products .
+you can select the option to choose the product.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+I have used Coffee api to get product image and title 
+
+There is Filter button on bottom corner to choose filter options.
+
+
