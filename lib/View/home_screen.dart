@@ -79,6 +79,7 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white),
                           child: ListView.builder(
+                            
                             itemCount: controller.searchResult.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
@@ -279,102 +280,104 @@ class HomeScreen extends StatelessWidget {
                   ? const Center(child: CircularProgressIndicator())
                   : controller.response_list!.isEmpty
                       ? const Text("No Data Found")
-                      : Expanded(
-                          child: GridView.builder(
-                          shrinkWrap: true,
-                          itemCount: controller.response_list!.length,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, childAspectRatio: 0.55),
-                          itemBuilder: (context, index) {
-                            return Card(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: Column(
-                                children: [
+                      : GridView.builder(
+
+                      shrinkWrap: true,
+                      itemCount: controller.response_list!.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                           SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              childAspectRatio: 0.55
+                               ),
+                      itemBuilder: (context, index) {
+                        return Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          child: Column(
+                            children: [
 //Image
 
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.only(
-                                            topLeft: Radius.circular(20),
-                                            topRight: Radius.circular(20)),
-                                        image: DecorationImage(
-                                            image: NetworkImage(controller
-                                                .response_list![index].image!),
-                                            fit: BoxFit.cover)),
-                                    height:
-                                        MediaQuery.sizeOf(context).height * 0.2,
-                                    width: MediaQuery.sizeOf(context).width,
-                                  ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(20),
+                                        topRight: Radius.circular(20)),
+                                    image: DecorationImage(
+                                        image: NetworkImage(controller
+                                            .response_list![index].image!),
+                                        fit: BoxFit.cover)),
+                                height:
+                                    MediaQuery.sizeOf(context).height * 0.25,
+                                width: MediaQuery.sizeOf(context).width,
+                              ),
 
 //Name
 
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Column(
-                                      children: [
-                                        Text(
-                                          controller
-                                              .response_list![index].title!,
-                                          style: const TextStyle(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold),
-                                        ),
-                                        SizedBox(
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.03,
-                                        ),
+                              Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      controller
+                                          .response_list![index].title!,
+                                      style: const TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(
+                                      height: MediaQuery.sizeOf(context)
+                                              .height *
+                                          0.03,
+                                    ),
 
 //Price
 
-                                        Text(
-                                          "Rs.${controller.response_list![index].id}00",
-                                          style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.bold),
-                                        ),
+                                    Text(
+                                      "Rs.${controller.response_list![index].id}00",
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
 //Buttons
 
-                                        SizedBox(
-                                          width: double.infinity,
-                                          child: OutlinedButton(
-                                              style: OutlinedButton.styleFrom(
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15)),
-                                                  side: const BorderSide(
-                                                      color: Colors.brown)),
-                                              onPressed: () {},
-                                              child: const Text("Add to Cart")),
-                                        ),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        SizedBox(
-                                          width: double.infinity,
-                                          child: OutlinedButton(
-                                              style: OutlinedButton.styleFrom(
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              15)),
-                                                  side: const BorderSide(
-                                                      color: Colors.brown)),
-                                              onPressed: () {},
-                                              child: const Text("Buy Now")),
-                                        ),
-                                      ],
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: OutlinedButton(
+                                          style: OutlinedButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15)),
+                                              side: const BorderSide(
+                                                  color: Colors.brown)),
+                                          onPressed: () {},
+                                          child: const Text("Add to Cart")),
                                     ),
-                                  ),
-                                ],
+                                    const SizedBox(
+                                      width: 10,
+                                    ),
+                                    SizedBox(
+                                      width: double.infinity,
+                                      child: OutlinedButton(
+                                          style: OutlinedButton.styleFrom(
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          15)),
+                                              side: const BorderSide(
+                                                  color: Colors.brown)),
+                                          onPressed: () {},
+                                          child: const Text("Buy Now")),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            );
-                          },
-                        ))
+                            ],
+                          ),
+                        );
+                      },
+                        )
             ]);
           }),
 //Filter button

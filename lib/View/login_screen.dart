@@ -7,14 +7,15 @@ class LoginScreen extends StatelessWidget {
 
   final email = TextEditingController();
   final password = TextEditingController();
-  LoginController l = Get.put(LoginController());
+  LoginController l=Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      //
-      body: GetBuilder<LoginController>(builder: (controller) {
+    //
+      body: GetBuilder<LoginController>(
+        builder: (controller) {
         return Container(
             alignment: Alignment.center,
             color: const Color.fromARGB(255, 219, 185, 172),

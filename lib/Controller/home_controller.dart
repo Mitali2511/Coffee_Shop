@@ -15,9 +15,6 @@ class HomeController extends GetxController {
   static List<bool> checkedItems =
       List.generate(category.length, (index) => false);
 
-  int currentPageIndex = 0;
-  Timer? timer;    
-
   var search = false;
 
   List slides = [
@@ -31,7 +28,7 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     getResponse();
-startTimer();
+
     // TODO: implement onInit
     super.onInit();
   }
@@ -177,25 +174,5 @@ startTimer();
     filter = false;
     product_list = [];
     update();
-  }
-
-
-  startTimer() {
-    print('started');
-    
-      
-      timer = Timer.periodic(Duration(seconds: 2), (Timer timer) {
-        if (currentPageIndex < slides.length - 1) {
-          currentPageIndex++;
-        } else {
-          currentPageIndex = 0;
-        }
-   if (slide.hasClients){
-        slide.animateToPage(currentPageIndex,
-            duration: const Duration(milliseconds: 500),
-            curve: Curves.easeInOut);}
-      });
-      update();
-    
   }
 }
