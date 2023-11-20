@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "427615694870",
+    "project_id": "kenmark-itan-assignment",
+    "storage_bucket": "kenmark-itan-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427615694870:android:70c66083560141bdb74537",
+        "android_client_info": {
+          "package_name": "com.example.kenmark_itan_assignment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ_z9lib0XB5O1I3VmmzMkk4gtXQYoXqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
