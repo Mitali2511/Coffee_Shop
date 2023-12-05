@@ -232,7 +232,11 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.sizeOf(context).height * 0.3,
                 child: PageView.builder(
+<<<<<<< HEAD
                     itemCount: controller.imageurls.length,
+=======
+                    itemCount: controller.slides.length,
+>>>>>>> 1fbfc2f13b93d6279d87eb0fcce7f9e7554f9543
                     controller: controller.slide,
                     itemBuilder: (context, index) {
                       return  Padding(
@@ -255,7 +259,11 @@ class HomeScreen extends StatelessWidget {
               Center(
                 child: SmoothPageIndicator(
                   controller: controller.slide,
+<<<<<<< HEAD
                   count: controller.imageurls.length,
+=======
+                  count: controller.slides.length,
+>>>>>>> 1fbfc2f13b93d6279d87eb0fcce7f9e7554f9543
                   effect: const ScrollingDotsEffect(
                       dotHeight: 8,
                       dotWidth: 8,
