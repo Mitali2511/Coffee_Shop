@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +5,14 @@ import 'package:kenmark_itan_assignment/Modle/product_list_modle.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
+  List imageurls = [
+    "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/sliders%2Fproduct1.png?alt=media&token=43e535e6-2552-4137-85ed-6c3d1e41318e",
+    "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/sliders%2Fproduct3.jpg?alt=media&token=89ad3416-9490-4c73-8b6f-1a7083c84383",
+    "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/sliders%2Fproduct2.png?alt=media&token=15779c37-21c8-4707-a74b-13e7b7ed8714",
+    "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/sliders%2Fproduct4.jpeg?alt=media&token=e3c1bb44-d4bf-4b22-9bb1-f6e9e0e3361d",
+    "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/sliders%2Fproduct5.jpeg?alt=media&token=b39c92e6-4a0b-404c-969a-0c2915adc5e5"
+  ];
+
   List<ProductListModel>? product_list;
   final slide = PageController();
   List<ProductListModel>? response_list;
@@ -17,13 +24,7 @@ class HomeController extends GetxController {
 
   var search = false;
 
-  List slides = [
-    "product1.png",
-    "product2.png",
-    "product3.jpg",
-    "product4.jpeg",
-    "product5.jpeg",
-  ];
+  List slides = [];
 
   @override
   void onInit() {

@@ -29,12 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                        
-                        Image.asset(
-                          "assets/logo.png",
-                          height: MediaQuery.sizeOf(context).height*0.5,
+                                   Image.network("https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/logo.png?alt=media&token=909765eb-3c79-4619-9b57-5d1bc4ec294c",height: MediaQuery.sizeOf(context).height*0.2,),
 
-                          width: MediaQuery.sizeOf(context).width*0.5,
-                        )
                       ],
                     ))
                   ]);

@@ -7,9 +7,9 @@ class OnBoardingScreen extends StatelessWidget {
   OnBoardingScreen({super.key});
 
   final List<OnBoardModel> onBoardList = [
-    OnBoardModel(image: "search.jpeg", title: "Search for coffee"),
-    OnBoardModel(image: "filter.jpeg", title: "Filter by choice"),
-    OnBoardModel(image: "add to cart.jpeg", title: "Add to cart"),
+    OnBoardModel(image: "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/search.jpeg?alt=media&token=7b335a79-ddee-427a-96c8-345ea5218c7a", title: "Search for coffee"),
+    OnBoardModel(image: "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/filter.jpeg?alt=media&token=63c957e7-21ac-4e11-a225-e782080f27a4", title: "Filter by choice"),
+    OnBoardModel(image: "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/add%20to%20cart.jpeg?alt=media&token=e7fd5190-5af5-48d5-92ab-a5c737b0ff47", title: "Add to cart"),
   ];
 
   final onboard = PageController();
@@ -35,7 +35,7 @@ class OnBoardingScreen extends StatelessWidget {
                   return Column(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Image.asset("assets/${onBoardList[index].image}"),
+                      Image.network(onBoardList[index].image!),
                       
                       Text(onBoardList[index].title.toString(),
                           style: Theme.of(context).textTheme.titleLarge),
