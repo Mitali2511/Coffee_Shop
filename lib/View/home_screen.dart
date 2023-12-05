@@ -6,7 +6,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  
   final TextEditingController search = TextEditingController();
 
   @override
@@ -21,7 +20,10 @@ class HomeScreen extends StatelessWidget {
         title: Row(
           children: [
             //Logo
-           Image.network("https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/logo.png?alt=media&token=909765eb-3c79-4619-9b57-5d1bc4ec294c",height: MediaQuery.sizeOf(context).height*0.08,),
+            Image.network(
+              "https://firebasestorage.googleapis.com/v0/b/kenmark-itan-assignment.appspot.com/o/logo.png?alt=media&token=909765eb-3c79-4619-9b57-5d1bc4ec294c",
+              height: MediaQuery.sizeOf(context).height * 0.08,
+            ),
             //Name
             Text(
               "Coffee Shop",
@@ -74,13 +76,13 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white),
                           child: ListView.builder(
-                            
                             itemCount: controller.searchResult.length,
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
                               return ListTile(
                                 onTap: () {
-                                  search.text=controller.searchResult[index].title!;
+                                  search.text =
+                                      controller.searchResult[index].title!;
                                   controller.searchFinalResult();
                                 },
                                 title:
@@ -119,112 +121,106 @@ class HomeScreen extends StatelessWidget {
                           ? const Offstage()
                           //
                           : ListView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: controller.product_list!.length,
-                            itemBuilder: (context, index) {
-                              return Card(
-                                shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(20)),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: Row(
-                                    children: [
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemCount: controller.product_list!.length,
+                              itemBuilder: (context, index) {
+                                return Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Row(
+                                      children: [
 //Image
 
-                                      Container(
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                            image: DecorationImage(
-                                                image: NetworkImage(
-                                                    controller
-                                                        .product_list![
-                                                            index]
-                                                        .image!),
-                                                fit: BoxFit.cover)),
-                                        height: MediaQuery.sizeOf(context)
-                                                .height *
-                                            0.2,
-                                        width: MediaQuery.sizeOf(context)
-                                                .width *
-                                            0.35,
-                                      ),
-                                      SizedBox(
-                                        width: MediaQuery.sizeOf(context)
-                                                .width *
-                                            0.03,
-                                      ),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(20),
+                                              image: DecorationImage(
+                                                  image: NetworkImage(controller
+                                                      .product_list![index]
+                                                      .image!),
+                                                  fit: BoxFit.cover)),
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.2,
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.35,
+                                        ),
+                                        SizedBox(
+                                          width:
+                                              MediaQuery.sizeOf(context).width *
+                                                  0.03,
+                                        ),
 
-                                      //
-                                      Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
+                                        //
+                                        Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
 //Name
 
-                                          Text(
-                                            controller.product_list![index]
-                                                .title!,
-                                            style: const TextStyle(
-                                                fontSize: 18,
-                                                fontWeight:
-                                                    FontWeight.bold),
-                                          ),
-                                          SizedBox(
-                                            height:
-                                                MediaQuery.sizeOf(context)
-                                                        .height *
-                                                    0.08,
-                                          ),
+                                            Text(
+                                              controller
+                                                  .product_list![index].title!,
+                                              style: const TextStyle(
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            SizedBox(
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.08,
+                                            ),
 
 //Price
 
-                                          Text(
-                                            "Rs.${controller.product_list![index].id}00",
-                                            style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight:
-                                                    FontWeight.bold),
-                                          ),
-                                          //Buttons
+                                            Text(
+                                              "Rs.${controller.product_list![index].id}00",
+                                              style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            //Buttons
 
-                                          Row(
-                                            children: [
-                                              OutlinedButton(
-                                                  style: OutlinedButton
-                                                      .styleFrom(
-                                                          side: const BorderSide(
-                                                              color: Colors
-                                                                  .brown)),
-                                                  onPressed: () {},
-                                                  child: const Text(
-                                                      "Add to Cart")),
-                                              const SizedBox(
-                                                width: 10,
-                                              ),
-                                              OutlinedButton(
-                                                  style: OutlinedButton
-                                                      .styleFrom(
-                                                          side: const BorderSide(
-                                                              color: Colors
-                                                                  .brown)),
-                                                  onPressed: () {},
-                                                  child:
-                                                      const Text("Buy Now"))
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
+                                            Row(
+                                              children: [
+                                                OutlinedButton(
+                                                    style: OutlinedButton
+                                                        .styleFrom(
+                                                            side: const BorderSide(
+                                                                color: Colors
+                                                                    .brown)),
+                                                    onPressed: () {},
+                                                    child: const Text(
+                                                        "Add to Cart")),
+                                                const SizedBox(
+                                                  width: 10,
+                                                ),
+                                                OutlinedButton(
+                                                    style: OutlinedButton
+                                                        .styleFrom(
+                                                            side: const BorderSide(
+                                                                color: Colors
+                                                                    .brown)),
+                                                    onPressed: () {},
+                                                    child:
+                                                        const Text("Buy Now"))
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                          )
+                                );
+                              },
+                            )
                   : const Offstage(),
 
 //slides
@@ -232,21 +228,18 @@ class HomeScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.sizeOf(context).height * 0.3,
                 child: PageView.builder(
-<<<<<<< HEAD
                     itemCount: controller.imageurls.length,
-=======
-                    itemCount: controller.slides.length,
->>>>>>> 1fbfc2f13b93d6279d87eb0fcce7f9e7554f9543
                     controller: controller.slide,
                     itemBuilder: (context, index) {
-                      return  Padding(
+                      return Padding(
                         padding: const EdgeInsets.all(5.0),
                         child: Container(
                           padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(15),
                             image: DecorationImage(
-                                image: NetworkImage(controller.imageurls[index]),
+                                image:
+                                    NetworkImage(controller.imageurls[index]),
                                 fit: BoxFit.cover),
                           ),
                           width: MediaQuery.sizeOf(context).width * 0.3,
@@ -259,11 +252,7 @@ class HomeScreen extends StatelessWidget {
               Center(
                 child: SmoothPageIndicator(
                   controller: controller.slide,
-<<<<<<< HEAD
                   count: controller.imageurls.length,
-=======
-                  count: controller.slides.length,
->>>>>>> 1fbfc2f13b93d6279d87eb0fcce7f9e7554f9543
                   effect: const ScrollingDotsEffect(
                       dotHeight: 8,
                       dotWidth: 8,
@@ -282,102 +271,99 @@ class HomeScreen extends StatelessWidget {
                   : controller.response_list!.isEmpty
                       ? const Text("No Data Found")
                       : GridView.builder(
-                      
-                      shrinkWrap: true,
-                      itemCount: controller.response_list!.length,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                           SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              childAspectRatio: 0.5
-                               ),
-                      itemBuilder: (context, index) {
-                        return Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20)),
-                          child: Column(
-                            children: [
-                      //Image
-                      
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
-                                        topLeft: Radius.circular(20),
-                                        topRight: Radius.circular(20)),
-                                    image: DecorationImage(
-                                        image: NetworkImage(controller
-                                            .response_list![index].image!),
-                                        fit: BoxFit.cover)),
-                                height:
-                                    MediaQuery.sizeOf(context).height * 0.2,
-                                width: MediaQuery.sizeOf(context).width,
+                          shrinkWrap: true,
+                          itemCount: controller.response_list!.length,
+                          physics: const NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2, childAspectRatio: 0.5),
+                          itemBuilder: (context, index) {
+                            return Card(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: Column(
+                                children: [
+                                  //Image
+
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: const BorderRadius.only(
+                                            topLeft: Radius.circular(20),
+                                            topRight: Radius.circular(20)),
+                                        image: DecorationImage(
+                                            image: NetworkImage(controller
+                                                .response_list![index].image!),
+                                            fit: BoxFit.cover)),
+                                    height:
+                                        MediaQuery.sizeOf(context).height * 0.2,
+                                    width: MediaQuery.sizeOf(context).width,
+                                  ),
+
+                                  //Name
+
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          controller
+                                              .response_list![index].title!,
+                                          style: const TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        SizedBox(
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.03,
+                                        ),
+
+                                        //Price
+
+                                        Text(
+                                          "Rs.${controller.response_list![index].id}00",
+                                          style: const TextStyle(
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        //Buttons
+
+                                        SizedBox(
+                                          width: double.infinity,
+                                          child: OutlinedButton(
+                                              style: OutlinedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15)),
+                                                  side: const BorderSide(
+                                                      color: Colors.brown)),
+                                              onPressed: () {},
+                                              child: const Text("Add to Cart")),
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        SizedBox(
+                                          width: double.infinity,
+                                          child: OutlinedButton(
+                                              style: OutlinedButton.styleFrom(
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15)),
+                                                  side: const BorderSide(
+                                                      color: Colors.brown)),
+                                              onPressed: () {},
+                                              child: const Text("Buy Now")),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                      
-                      //Name
-                      
-                              Padding(
-                                padding: const EdgeInsets.all(5.0),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      controller
-                                          .response_list![index].title!,
-                                      style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    SizedBox(
-                                      height: MediaQuery.sizeOf(context)
-                                              .height *
-                                          0.03,
-                                    ),
-                      
-                      //Price
-                      
-                                    Text(
-                                      "Rs.${controller.response_list![index].id}00",
-                                      style: const TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                      //Buttons
-                      
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: OutlinedButton(
-                                          style: OutlinedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          15)),
-                                              side: const BorderSide(
-                                                  color: Colors.brown)),
-                                          onPressed: () {},
-                                          child: const Text("Add to Cart")),
-                                    ),
-                                    const SizedBox(
-                                      width: 10,
-                                    ),
-                                    SizedBox(
-                                      width: double.infinity,
-                                      child: OutlinedButton(
-                                          style: OutlinedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          15)),
-                                              side: const BorderSide(
-                                                  color: Colors.brown)),
-                                          onPressed: () {},
-                                          child: const Text("Buy Now")),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
+                            );
+                          },
                         )
             ]);
           }),
